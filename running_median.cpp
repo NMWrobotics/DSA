@@ -1,7 +1,8 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
+
+// functions for Quick Sort
 void swap(int* a, int* b) {
     int t = *a;
     *a = *b;
@@ -33,44 +34,43 @@ void quickSort(int arr[], int low, int high) {
 
 int main(){
 
-    int arr[6] = {7,3,5,2,6,9};
-    int n = 6;
-    int newarr[4];
+    const int n = 6;
+    int arr[n] = {11,2,13,6,5,8};
+    int newarr[n];
     float median = 0;
-  /*  cout<<"enter array";
-     for (int i = 0; i < n; i++){
-        cin >> arr[i];
-    } */
+
+    cout<< "Input"<< " ";
+
+    for (int k = 0; k<= n-1; k++){
+        cout<<arr[k]<<" ";
+    }
+
+    cout<<endl;
     cout << "sorted"<< "\t\t"<< "median"<<endl;
 
      for (int i = 0; i<= n-1; i++){
-            newarr[i] = arr[i];
+        newarr[i] = arr[i];
+        quickSort(newarr, 0, i);
+        for (int j = 0; j<= i; j++){
+            cout<<newarr[j]<<" ";
+        }
+        if ((i+1) %2 == 0) {
+            //cout<<"even";
+            //cout<< i;
+            median = (float(newarr[i / 2]) + float(newarr[(i / 2) + 1])) / 2;
             
-             
-             quickSort(newarr, 0, i);
-             for (int j = 0; j<= i; j++){
-                    cout<<newarr[j]<<" ";
-             }
-             if ((i+1) %2 == 0) {
-                //cout<<"even";
-                //cout<< i;
-                median = (float(newarr[i/2]) + float(newarr[(i/2)+1])) / 2;
-                cout <<"\t\t"<< median;
+            cout <<"\t\t"<< median;
                 
-             }else{
-                median = float(newarr[i/2]);
-                cout <<"\t\t"<< median;
+        }else{
 
-             }
-             cout<<endl; 
+            median = float(newarr[i / 2]);
+            cout <<"\t\t"<< median;
 
+         }
+         cout<<endl; 
 
-    
 
      }
-
-
-
 
 
 }
